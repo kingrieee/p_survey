@@ -1,24 +1,6 @@
-<?php
-	session_start();
-	require('db_connect.php');
+<?php require('../psychcare/controllers/session_controller.php');?>
+<?php unsetSesh();?>
 
-	if(isset($_POST['submit'])){
-		$username = $_POST['student_ID'];
-		$password = $_POST['student_Password'];
-
-		$query = "SELECT * FROM student_data WHERE student_ID = '".$username."' AND student_Password = '".$password."'";
-		$result =  mysqli_query($sql, $query);
-		$check = mysqli_num_rows($result);
-		$row = mysqli_fetch_row($result);
-
-		if($check==1){
-			$_SESSION['student_user'] = $row['0'];
-			header("Location: category.php");
-		}else{
-			echo '<script type="text/javascript">alert("Invalid Username or Password")</script>';
-		}
-	}
-?>
 
 <!DOCTYPE HTML>
 <html>
@@ -326,7 +308,7 @@
 				</div>
 					
 					<div class="modal-footer"> 
-					<form method="POST" action="">
+					<form method="POST" action="../psychcare/controllers/login_controller.php">
 						<div class="col-sm-12 col-md-12">
 						<div class="form-group mb-30">
 							<p align="left">Id Number</p>
@@ -338,7 +320,7 @@
 							<p align="left">Password</p>
 							<input type="password" name="student_Password" class="form-control mb-2 mr-sm-2 mb-sm-0" placeholder="Password" required>
 							<br>
-							<input type="submit" name="submit" class="btn btn-main" value="Log In">
+							<input type="submit" name="getStarted" class="btn btn-main" value="Log In">
 						</div>
 						</div>
 					</form>

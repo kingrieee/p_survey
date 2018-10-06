@@ -1,3 +1,5 @@
+<?php require('../psychcare/controllers/session_controller.php');?>
+
 <!DOCTYPE HTML>
 <html>
 	<head>
@@ -62,7 +64,7 @@
 					<div class="col-md-12">
 						<div class="colorlib-navbar-brand">
 							<center>
-								<a href="index.php">
+								<a href="#">
 								<img src="images/logo-landscape.png" width="250" height="130">
 							</center>
 						</div>
@@ -73,7 +75,7 @@
 			<div class="container-fluid"> 
 				<div class="row">
 					<div class="col-md-8 col-md-offset-2 text-center animate-box intro-heading">
-						<h2>Choose your Categories</h2>
+						<h2>Hello, <?php echo $_SESSION['student_FN']; ?> Choose your Categories</h2>
 					</div>
 				</div>
 				<div class="row">
